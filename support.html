@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vénus — Support & FAQ</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap');
+    :root {
+      --bg: #07050f; --purple: #9b59e8; --purple-light: #c8a8f5;
+      --text: #e8e4f5; --text-dim: rgba(232,228,245,0.6); --text-muted: #4a4268;
+      --border: rgba(200,168,245,0.12); --gold: #e8c86a; --teal: #6bd4c8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+    .stars { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0; }
+    .star { position: absolute; border-radius: 50%; background: #fff; animation: twinkle 3s ease-in-out infinite alternate; }
+    @keyframes twinkle { from { opacity: 0.2; } to { opacity: 0.6; } }
+    .container { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
+    header { text-align: center; padding: 60px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+    .logo { font-size: 32px; color: var(--purple-light); font-style: italic; letter-spacing: 4px; margin-bottom: 8px; }
+    h1 { font-size: 24px; font-weight: 400; color: var(--text); margin-bottom: 8px; }
+    .subtitle { font-size: 13px; color: var(--text-muted); }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 48px; }
+    .contact-card { background: rgba(200,168,245,0.04); border: 1px solid var(--border); border-radius: 16px; padding: 20px; text-align: center; }
+    .contact-card .emoji { font-size: 28px; margin-bottom: 10px; display: block; }
+    .contact-card .label { font-size: 11px; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+    .contact-card a { font-size: 14px; color: var(--purple-light); text-decoration: none; font-weight: 500; }
+    .contact-card .delay { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+    .faq-section { margin-bottom: 40px; }
+    h2 { font-size: 18px; font-weight: 500; color: var(--gold); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+    .faq-item { background: rgba(200,168,245,0.03); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { padding: 16px 20px; font-size: 14px; color: var(--purple-light); font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-q:hover { background: rgba(200,168,245,0.05); }
+    .faq-a { padding: 0 20px 16px; font-size: 13px; color: var(--text-dim); line-height: 1.8; display: none; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .arrow { transform: rotate(180deg); }
+    .arrow { transition: transform 0.2s; color: var(--text-muted); font-size: 14px; }
+    .highlight { background: rgba(107,212,200,0.06); border: 1px solid rgba(107,212,200,0.2); border-radius: 14px; padding: 16px 20px; margin-bottom: 40px; font-size: 13px; color: var(--teal); line-height: 1.8; }
+    footer { text-align: center; padding: 30px 0; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+    @media (max-width: 600px) { header { padding: 40px 0 30px; } .container { padding: 0 16px 60px; } }
+  </style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<div class="container">
+
+  <header>
+    <div class="logo">♀ Vénus</div>
+    <h1>Support & Aide</h1>
+    <p class="subtitle">Application de rencontre astrologique</p>
+  </header>
+
+  <div class="highlight">
+    ✦ Notre équipe répond à toutes vos demandes sous 48 heures ouvrables (Lun–Ven, 9h–18h heure de Paris).
+  </div>
+
+  <!-- Contacts -->
+  <div class="contact-grid">
+    <div class="contact-card">
+      <span class="emoji">💬</span>
+      <div class="label">Support général</div>
+      <a href="mailto:contact@venus-app.fr">contact@venus-app.fr</a>
+      <div class="delay">Réponse sous 48h</div>
+    </div>
+    <div class="contact-card">
+      <span class="emoji">🛡️</span>
+      <div class="label">Sécurité & signalement</div>
+      <a href="mailto:safety@venus-app.fr">safety@venus-app.fr</a>
+      <div class="delay">Prioritaire — 24h</div>
+    </div>
+    <div class="contact-card">
+      <span class="emoji">🔒</span>
+      <div class="label">Données personnelles</div>
+      <a href="mailto:privacy@venus-app.fr">privacy@venus-app.fr</a>
+      <div class="delay">RGPD — 30 jours max</div>
+    </div>
+  </div>
+
+  <!-- FAQ Compte -->
+  <div class="faq-section">
+    <h2>🔑 Mon compte</h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Comment supprimer mon compte ? <span class="arrow">∨</span></div>
+      <div class="faq-a">Allez dans l'application → Paramètres → Zone danger → Supprimer mon compte. La suppression est définitive. Toutes vos données seront effacées dans un délai de 30 jours conformément au RGPD.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">J'ai oublié mon mot de passe <span class="arrow">∨</span></div>
+      <div class="faq-a">Contactez-nous à contact@venus-app.fr avec votre adresse email d'inscription. Nous vous enverrons un lien de réinitialisation sous 24h.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Comment modifier mes informations personnelles ? <span class="arrow">∨</span></div>
+      <div class="faq-a">Dans l'app → Mon Profil → Modifier. Vous pouvez changer votre bio, photos, centres d'intérêt et préférences à tout moment.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Comment exporter mes données ? <span class="arrow">∨</span></div>
+      <div class="faq-a">Dans l'app → Paramètres → Sécurité → Exporter mes données (RGPD). Vous recevrez un email avec vos données dans un délai de 72 heures. Droit prévu par l'article 20 du RGPD.</div>
+    </div>
+  </div>
+
+  <!-- FAQ Matching -->
+  <div class="faq-section">
+    <h2>✦ Matching & Astrologie</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Comment fonctionne la compatibilité astrologique ? <span class="arrow">∨</span></div>
+      <div class="faq-a">Vénus calcule la synastrie entre votre thème natal (Soleil, Lune, Ascendant) et celui de chaque profil. Le score de compatibilité est calculé sur 5 dimensions : Âme, Amour, Mental, Passion et Confiance, basées sur les aspects astrologiques classiques (trigone, sextile, carré, opposition).</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Pourquoi je ne vois plus certains profils ? <span class="arrow">∨</span></div>
+      <div class="faq-a">Les profils que vous avez likés, zippés ou bloqués ne réapparaissent plus. Si vous avez appliqué des filtres (élément, compatibilité, âge), vérifiez-les dans le panneau filtres. Vous pouvez réinitialiser les filtres pour voir plus de profils.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Comment fonctionne le Super Like ⚡ ? <span class="arrow">∨</span></div>
+      <div class="faq-a">Le Super Like envoie un signal fort d'intérêt. Si la personne vous a déjà liké, le match est immédiat. Sinon, votre demande lui est notifiée en priorité.</div>
+    </div>
+  </div>
+
+  <!-- FAQ Sécurité -->
+  <div class="faq-section">
+    <h2>🛡️ Sécurité & Signalements</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Comment signaler un profil inapproprié ? <span class="arrow">∨</span></div>
+      <div class="faq-a">Sur le profil de la personne → Signaler ou bloquer ce profil. Choisissez le motif et confirmez. Le signalement est traité sous 24 heures ouvrables. Vous pouvez aussi contacter safety@venus-app.fr pour toute urgence.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Comment bloquer quelqu'un ? <span class="arrow">∨</span></div>
+      <div class="faq-a">Sur le profil → Signaler ou bloquer → Bloquer [nom]. La personne disparaît immédiatement de votre Discover et ne peut plus vous contacter. Le blocage est persistant.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Je pense avoir affaire à un faux profil <span class="arrow">∨</span></div>
+      <div class="faq-a">Signalez immédiatement via l'app (motif : "Faux profil / Bot") ou envoyez un email à safety@venus-app.fr. Nous vérifions chaque signalement sous 24h et supprimons les profils frauduleux.</div>
+    </div>
+  </div>
+
+  <!-- FAQ Technique -->
+  <div class="faq-section">
+    <h2>📱 Problèmes techniques</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">L'app ne se charge pas <span class="arrow">∨</span></div>
+      <div class="faq-a">Vérifiez votre connexion internet. Fermez et relancez l'application. Si le problème persiste, désinstallez et réinstallez l'app. Vos données sont sauvegardées sur nos serveurs et ne seront pas perdues.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Je ne reçois pas de notifications <span class="arrow">∨</span></div>
+      <div class="faq-a">Vérifiez que les notifications sont activées : Réglages iPhone → Vénus → Notifications → Autoriser. Assurez-vous d'être connecté à votre compte dans l'app.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Mes messages disparaissent <span class="arrow">∨</span></div>
+      <div class="faq-a">Les messages sont synchronisés avec nos serveurs. Si vous voyez des messages disparaître, vérifiez votre connexion internet et relancez l'app. Contactez-nous si le problème persiste.</div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Vénus — Application de rencontre astrologique</p>
+    <p style="margin-top: 8px;">
+      <a href="privacy-policy.html" style="color: var(--purple-light); text-decoration: none;">Politique de confidentialité</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:contact@venus-app.fr" style="color: var(--purple-light); text-decoration: none;">Contact</a>
+    </p>
+  </footer>
+
+</div>
+<script>
+  // Stars
+  const c = document.getElementById('stars');
+  for(let i=0;i<60;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    const sz=0.5+Math.random()*2;
+    s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;opacity:${0.1+Math.random()*0.4};animation-delay:${Math.random()*4}s;animation-duration:${2+Math.random()*4}s`;
+    c.appendChild(s);
+  }
+  // FAQ toggle
+  function toggle(el){
+    const item=el.parentElement;
+    item.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
