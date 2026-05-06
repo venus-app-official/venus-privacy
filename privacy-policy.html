@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vénus — Politique de confidentialité</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+    :root {
+      --bg: #07050f;
+      --bg2: #0e0a1f;
+      --purple: #9b59e8;
+      --purple-light: #c8a8f5;
+      --pink: #f08aaa;
+      --gold: #e8c86a;
+      --teal: #6bd4c8;
+      --text: #e8e4f5;
+      --text-dim: rgba(232,228,245,0.55);
+      --text-muted: #4a4268;
+      --border: rgba(200,168,245,0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Stars background */
+    .stars {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: #fff;
+      animation: twinkle var(--d, 3s) ease-in-out infinite alternate;
+    }
+    @keyframes twinkle {
+      from { opacity: var(--op, 0.3); transform: scale(1); }
+      to   { opacity: var(--op2, 0.8); transform: scale(1.3); }
+    }
+
+    /* Nebula glow */
+    .nebula {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .nebula-1 { width: 600px; height: 600px; background: rgba(155,89,232,0.07); top: -200px; right: -200px; }
+    .nebula-2 { width: 400px; height: 400px; background: rgba(240,138,170,0.05); bottom: 100px; left: -150px; }
+
+    /* Layout */
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .logo-symbol {
+      font-size: 36px;
+      color: var(--purple-light);
+      text-shadow: 0 0 20px rgba(200,168,245,0.5);
+    }
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--purple-light);
+      letter-spacing: 3px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 0.3px;
+    }
+
+    .update-badge {
+      display: inline-block;
+      margin-top: 14px;
+      background: rgba(200,168,245,0.08);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 16px;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    /* Nav links */
+    nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+    nav a {
+      color: var(--purple-light);
+      text-decoration: none;
+      font-size: 12px;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+    nav a:hover {
+      background: rgba(200,168,245,0.1);
+      border-color: var(--purple-light);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 56px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-icon {
+      width: 42px; height: 42px;
+      border-radius: 12px;
+      background: rgba(155,89,232,0.12);
+      border: 1px solid rgba(155,89,232,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .section-number {
+      font-size: 11px;
+      color: var(--purple);
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 3px;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: 0.3px;
+    }
+
+    /* Articles */
+    article {
+      background: rgba(200,168,245,0.03);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+    }
+    article:hover { border-color: rgba(200,168,245,0.22); }
+
+    h3 {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gold);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h3::before {
+      content: '✦';
+      font-size: 10px;
+      color: var(--purple);
+      opacity: 0.6;
+    }
+
+    p, li {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.85;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 4px;
+      margin-top: 8px;
+    }
+    ul li {
+      padding: 4px 0;
+      padding-left: 18px;
+      position: relative;
+    }
+    ul li::before {
+      content: '·';
+      position: absolute;
+      left: 4px;
+      color: var(--purple-light);
+      font-weight: 700;
+    }
+
+    strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* Highlight boxes */
+    .highlight {
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 13px;
+      line-height: 1.75;
+    }
+    .highlight-green {
+      background: rgba(107,212,200,0.06);
+      border: 1px solid rgba(107,212,200,0.2);
+      color: var(--teal);
+    }
+    .highlight-purple {
+      background: rgba(155,89,232,0.06);
+      border: 1px solid rgba(155,89,232,0.2);
+      color: var(--purple-light);
+    }
+    .highlight-pink {
+      background: rgba(240,138,170,0.06);
+      border: 1px solid rgba(240,138,170,0.2);
+      color: var(--pink);
+    }
+
+    /* Rights grid */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .right-card {
+      background: rgba(200,168,245,0.04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+    }
+    .right-card .art {
+      font-size: 10px;
+      color: var(--purple);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .right-card .right-name {
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .right-card .right-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .contact-card {
+      background: rgba(200,168,245,0.04);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+    }
+    .contact-card .emoji { font-size: 24px; margin-bottom: 8px; display: block; }
+    .contact-card .label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+    .contact-card a {
+      font-size: 13px;
+      color: var(--purple-light);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact-card a:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 0 20px;
+      border-top: 1px solid var(--border);
+    }
+    footer p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-style: italic;
+      color: var(--purple-light);
+      opacity: 0.5;
+      letter-spacing: 3px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header { padding: 40px 0 30px; }
+      h1 { font-size: 22px; }
+      .container { padding: 0 16px 60px; }
+      .rights-grid, .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Background stars -->
+<div class="stars" id="stars"></div>
+<div class="nebula nebula-1"></div>
+<div class="nebula nebula-2"></div>
+
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <span class="logo-symbol">♀</span>
+      <span class="logo-text">Vénus</span>
+    </div>
+    <h1>Politique de confidentialité</h1>
+    <p class="subtitle">Application de rencontre astrologique</p>
+    <span class="update-badge">Dernière mise à jour : Mai 2026</span>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#collecte">Données collectées</a>
+    <a href="#utilisation">Utilisation</a>
+    <a href="#securite">Sécurité</a>
+    <a href="#droits">Vos droits</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Intro -->
+  <div class="highlight highlight-purple" style="margin-bottom: 40px;">
+    ✦ Vénus respecte votre vie privée. Nous ne vendons jamais vos données personnelles et ne faisons aucune publicité. Notre modèle économique repose uniquement sur les téléchargements de l'application.
+  </div>
+
+  <!-- Section 1 : Responsable -->
+  <section id="responsable">
+    <div class="section-header">
+      <div class="section-icon">⚖️</div>
+      <div>
+        <span class="section-number">Article 1</span>
+        <h2>Responsable du traitement</h2>
+      </div>
+    </div>
+    <article>
+      <h3>Identité</h3>
+      <p><strong>Vénus SAS</strong>, société par actions simplifiée au capital de 10 000 €<br>
+      Siège social : 12 rue des Étoiles, 69001 Lyon, France<br>
+      RCS Lyon : 123 456 789 — SIRET : 123 456 789 00012<br>
+      TVA intracommunautaire : FR12 123456789</p>
+      <p style="margin-top:10px;">Contact DPO : <a href="mailto:privacy@venus-app.fr" style="color:var(--purple-light)">privacy@venus-app.fr</a></p>
+    </article>
+  </section>
+
+  <!-- Section 2 : Données collectées -->
+  <section id="collecte">
+    <div class="section-header">
+      <div class="section-icon">📋</div>
+      <div>
+        <span class="section-number">Article 2</span>
+        <h2>Données collectées</h2>
+      </div>
+    </div>
+    <article>
+      <h3>Données d'identification</h3>
+      <ul>
+        <li>Prénom et adresse email (obligatoires)</li>
+        <li>Numéro de téléphone (optionnel)</li>
+        <li>Date de naissance (pour le calcul astrologique et la vérification d'âge)</li>
+      </ul>
+    </article>
+    <article>
+      <h3>Données de profil</h3>
+      <ul>
+        <li>Ville de résidence et pays</li>
+        <li>Genre et orientation sexuelle <strong>(donnée sensible — consentement explicite requis)</strong></li>
+        <li>Photos de profil</li>
+        <li>Biographie et centres d'intérêt</li>
+        <li>Préférences de rencontre</li>
+      </ul>
+    </article>
+    <article>
+      <h3>Données astrologiques</h3>
+      <ul>
+        <li>Signe solaire, lunaire et ascendant (calculés automatiquement)</li>
+        <li>Scores de compatibilité entre profils</li>
+      </ul>
+    </article>
+    <article>
+      <h3>Données d'usage</h3>
+      <ul>
+        <li>Likes envoyés et reçus</li>
+        <li>Matchs confirmés</li>
+        <li>Messages échangés (chiffrés en transit)</li>
+        <li>Token de notification push (avec votre consentement)</li>
+      </ul>
+    </article>
+    <div class="highlight highlight-pink">
+      ⚠️ L'orientation sexuelle est une donnée sensible au sens de l'article 9 du RGPD. Elle n'est collectée qu'avec votre consentement explicite lors de l'inscription et n'est jamais partagée avec des tiers.
+    </div>
+  </section>
+
+  <!-- Section 3 : Base légale -->
+  <section id="base-legale">
+    <div class="section-header">
+      <div class="section-icon">📜</div>
+      <div>
+        <span class="section-number">Article 3</span>
+        <h2>Base légale des traitements</h2>
+      </div>
+    </div>
+    <article>
+      <h3>Fondements juridiques</h3>
+      <ul>
+        <li><strong>Exécution du contrat</strong> — traitement nécessaire à la fourniture du service de mise en relation</li>
+        <li><strong>Consentement explicite</strong> — pour les données sensibles (orientation sexuelle, géolocalisation, notifications)</li>
+        <li><strong>Intérêt légitime</strong> — sécurité de la plateforme, détection de fraudes, amélioration du service</li>
+        <li><strong>Obligation légale</strong> — conservation des données de connexion (LCEN, art. L34-1)</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- Section 4 : Utilisation -->
+  <section id="utilisation">
+    <div class="section-header">
+      <div class="section-icon">🎯</div>
+      <div>
+        <span class="section-number">Article 4</span>
+        <h2>Utilisation des données</h2>
+      </div>
+    </div>
+    <article>
+      <h3>Finalités du traitement</h3>
+      <ul>
+        <li>Créer et gérer votre compte utilisateur</li>
+        <li>Calculer et afficher les compatibilités astrologiques</li>
+        <li>Vous proposer des profils pertinents selon vos préférences</li>
+        <li>Faciliter les échanges entre utilisateurs matchés</li>
+        <li>Envoyer des notifications push (avec votre consentement)</li>
+        <li>Assurer la sécurité et la modération de la plateforme</li>
+        <li>Respecter nos obligations légales</li>
+      </ul>
+    </article>
+    <div class="highlight highlight-green">
+      ✓ Nous ne faisons aucune publicité ciblée. Vos données ne sont jamais utilisées à des fins commerciales autres que le fonctionnement du service.
+    </div>
+  </section>
+
+  <!-- Section 5 : Destinataires -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon">🤝</div>
+      <div>
+        <span class="section-number">Article 5</span>
+        <h2>Destinataires des données</h2>
+      </div>
+    </div>
+    <article>
+      <h3>Sous-traitants techniques</h3>
+      <p>Vos données sont partagées uniquement avec nos prestataires techniques dans le cadre de contrats de sous-traitance conformes au RGPD :</p>
+      <ul>
+        <li><strong>Supabase Inc.</strong> — hébergement base de données (serveurs UE, Paris)</li>
+        <li><strong>Expo / EAS</strong> — distribution de l'application</li>
+        <li><strong>Anthropic PBC</strong> — génération d'horoscopes IA (données anonymisées)</li>
+      </ul>
+    </article>
+    <article>
+      <h3>Aucun partage commercial</h3>
+      <p>Nous ne vendons, ne louons et ne partageons jamais vos données personnelles avec des tiers à des fins commerciales, publicitaires ou de profilage.</p>
+      <p style="margin-top:8px;">Les autorités judiciaires peuvent accéder à vos données sur réquisition légale.</p>
+    </article>
+  </section>
+
+  <!-- Section 6 : Conservation -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon">🗄️</div>
+      <div>
+        <span class="section-number">Article 6</span>
+        <h2>Durée de conservation</h2>
+      </div>
+    </div>
+    <article>
+      <h3>Durées applicables</h3>
+      <ul>
+        <li><strong>Compte actif</strong> — pendant toute la durée d'utilisation</li>
+        <li><strong>Après suppression</strong> — 30 jours (sécurité), puis suppression définitive</li>
+        <li><strong>Logs de connexion</strong> — 12 mois (obligation légale LCEN)</li>
+        <li><strong>Messages</strong> — supprimés à la clôture du match ou du compte</li>
+        <li><strong>Signalements</strong> — 3 ans (obligation légale)</li>
+        <li><strong>Données de facturation</strong> — 10 ans (obligation comptable)</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- Section 7 : Sécurité -->
+  <section id="securite">
+    <div class="section-header">
+      <div class="section-icon">🔒</div>
+      <div>
+        <span class="section-number">Article 7</span>
+        <h2>Sécurité des données</h2>
+      </div>
+    </div>
+    <article>
+      <h3>Mesures techniques</h3>
+      <ul>
+        <li>Chiffrement des communications (HTTPS/TLS 1.3)</li>
+        <li>Mots de passe hashés — non stockés en clair</li>
+        <li>Tokens de session sécurisés avec expiration automatique (7 jours)</li>
+        <li>Politiques de sécurité base de données (Row Level Security)</li>
+        <li>Accès aux données limité aux personnes habilitées</li>
+        <li>Surveillance continue des accès anormaux</li>
+      </ul>
+    </article>
+    <article>
+      <h3>En cas de violation</h3>
+      <p>En cas de violation de données susceptible d'engendrer un risque pour vos droits et libertés, nous vous en informerons dans les 72 heures conformément à l'article 34 du RGPD, ainsi que la CNIL.</p>
+    </article>
+  </section>
+
+  <!-- Section 8 : Droits -->
+  <section id="droits">
+    <div class="section-header">
+      <div class="section-icon">⚡</div>
+      <div>
+        <span class="section-number">Article 8</span>
+        <h2>Vos droits RGPD</h2>
+      </div>
+    </div>
+    <p style="color:var(--text-dim);font-size:13px;margin-bottom:16px;">Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
+    <div class="rights-grid">
+      <div class="right-card">
+        <div class="art">Art. 15</div>
+        <div class="right-name">Droit d'accès</div>
+        <div class="right-desc">Obtenir une copie de toutes vos données personnelles</div>
+      </div>
+      <div class="right-card">
+        <div class="art">Art. 16</div>
+        <div class="right-name">Rectification</div>
+        <div class="right-desc">Corriger vos données inexactes ou incomplètes</div>
+      </div>
+      <div class="right-card">
+        <div class="art">Art. 17</div>
+        <div class="right-name">Effacement</div>
+        <div class="right-desc">Supprimer votre compte et toutes vos données</div>
+      </div>
+      <div class="right-card">
+        <div class="art">Art. 18</div>
+        <div class="right-name">Limitation</div>
+        <div class="right-desc">Suspendre temporairement le traitement de vos données</div>
+      </div>
+      <div class="right-card">
+        <div class="art">Art. 20</div>
+        <div class="right-name">Portabilité</div>
+        <div class="right-desc">Exporter vos données (disponible dans l'app)</div>
+      </div>
+      <div class="right-card">
+        <div class="art">Art. 21</div>
+        <div class="right-name">Opposition</div>
+        <div class="right-desc">Vous opposer à certains traitements</div>
+      </div>
+    </div>
+    <div class="highlight highlight-green" style="margin-top:16px;">
+      Pour exercer vos droits : <strong>privacy@venus-app.fr</strong><br>
+      Réponse garantie sous 30 jours ouvrables.<br>
+      Vous pouvez également saisir la CNIL : <a href="https://www.cnil.fr" target="_blank" style="color:var(--teal)">www.cnil.fr</a>
+    </div>
+  </section>
+
+  <!-- Section 9 : Mineurs -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon">🔞</div>
+      <div>
+        <span class="section-number">Article 9</span>
+        <h2>Protection des mineurs</h2>
+      </div>
+    </div>
+    <article>
+      <p>Vénus est <strong>strictement réservée aux personnes âgées de 18 ans ou plus</strong>. Nous ne collectons pas sciemment de données relatives à des mineurs.</p>
+      <p style="margin-top:10px;">Tout compte dont le titulaire s'avère être mineur sera immédiatement supprimé. Si vous constatez qu'un mineur utilise l'application, signalez-le immédiatement à <a href="mailto:safety@venus-app.fr" style="color:var(--purple-light)">safety@venus-app.fr</a></p>
+    </article>
+  </section>
+
+  <!-- Section 10 : Cookies -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon">🍪</div>
+      <div>
+        <span class="section-number">Article 10</span>
+        <h2>Cookies et stockage local</h2>
+      </div>
+    </div>
+    <article>
+      <h3>Notre engagement no-tracking</h3>
+      <p>Vénus n'utilise <strong>aucun cookie publicitaire, aucun traceur tiers, aucune régie publicitaire</strong>. Nous utilisons uniquement le stockage local sécurisé de votre appareil pour :</p>
+      <ul>
+        <li>Maintenir votre session de connexion (token sécurisé, expiration 7 jours)</li>
+        <li>Sauvegarder vos préférences d'affichage</li>
+        <li>Conserver vos paramètres de filtres</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- Section 11 : Modifications -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon">📝</div>
+      <div>
+        <span class="section-number">Article 11</span>
+        <h2>Modifications de la politique</h2>
+      </div>
+    </div>
+    <article>
+      <p>Nous nous réservons le droit de modifier cette politique de confidentialité. Toute modification substantielle sera notifiée via l'application et/ou par email au moins 30 jours avant son entrée en vigueur.</p>
+      <p style="margin-top:10px;">La poursuite de l'utilisation de l'application après notification vaut acceptation de la nouvelle politique.</p>
+    </article>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="section-header">
+      <div class="section-icon">✉️</div>
+      <div>
+        <span class="section-number">Contact</span>
+        <h2>Nous contacter</h2>
+      </div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <span class="emoji">🔒</span>
+        <div class="label">Protection des données</div>
+        <a href="mailto:privacy@venus-app.fr">privacy@venus-app.fr</a>
+      </div>
+      <div class="contact-card">
+        <span class="emoji">🛡️</span>
+        <div class="label">Sécurité & modération</div>
+        <a href="mailto:safety@venus-app.fr">safety@venus-app.fr</a>
+      </div>
+      <div class="contact-card">
+        <span class="emoji">💬</span>
+        <div class="label">Service client</div>
+        <a href="mailto:contact@venus-app.fr">contact@venus-app.fr</a>
+      </div>
+    </div>
+    <div class="highlight highlight-purple" style="margin-top:16px;text-align:center;">
+      Délai de réponse garanti : <strong>48 heures ouvrables</strong><br>
+      Lundi – Vendredi, 9h – 18h (heure de Paris)
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">Vénus ♀</div>
+    <p style="margin-top:12px;">© 2026 Vénus SAS — Tous droits réservés</p>
+    <p>Application de rencontre astrologique · Lyon, France</p>
+    <p style="margin-top:12px;">
+      <a href="#" style="color:var(--purple-light);font-size:12px;text-decoration:none;">Politique de confidentialité</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:contact@venus-app.fr" style="color:var(--purple-light);font-size:12px;text-decoration:none;">Contact</a>
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  // Generate stars
+  const starsContainer = document.getElementById('stars');
+  for(let i = 0; i < 80; i++){
+    const star = document.createElement('div');
+    star.className = 'star';
+    const size = 0.5 + Math.random() * 2;
+    const op = 0.2 + Math.random() * 0.5;
+    star.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random()*100}%;
+      top:${Math.random()*100}%;
+      --op:${op}; --op2:${op + 0.3};
+      --d:${2 + Math.random()*4}s;
+      animation-delay:${Math.random()*4}s;
+    `;
+    starsContainer.appendChild(star);
+  }
+
+  // Smooth scroll for nav
+  document.querySelectorAll('nav a').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
